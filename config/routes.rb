@@ -4,9 +4,11 @@ Deviseapp::Application.routes.draw do
   devise_for :users
   devise_for :admins
 
+  resource :user
+
   get "home/index"
-
-
+  get "users/" => 'home#index'
+  get "admins/" => 'home#admin_panel_index'
   root :to => 'home#index'
 
   # The priority is based upon order of creation:

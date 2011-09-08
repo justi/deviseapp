@@ -1,6 +1,20 @@
-<h1>Home#index</h1>
+<% if admin_signed_in? %>
 
-  <%= render 'devise/user/registration_items' %>
+  <h1>hello admin</h1>
+
+  <%= link_to "View admin panel", admins_path %>
+  <%= link_to "Edit admin data", edit_admin_registration_path %>
+  <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+
+<% else  %>
+
+  <h1>Hello !</h1>
+
+
   <%= render 'devise/user/login_items' %>
+  <%= render 'devise/user/registration_items' %>
 
-<p>Find me in app/views/home/index.html.erb</p>
+  <br>
+  <%= link_to "Admin?", new_admin_session_path %>
+
+<% end %>

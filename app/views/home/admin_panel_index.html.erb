@@ -1,0 +1,13 @@
+<h1>For admins</h1>
+
+<%= render 'devise/admin/registration_items' %>
+<%= render 'devise/admin/login_items' %>
+<h2>Users:</h2>
+
+<% @users.each do |user| %>
+  <div class="entry">
+   <span><%= user.id %> <%= user.email %></span> <span><%= link_to "Edit", edit_user_registration_path %></span>
+  </div>
+<% end %>
+
+<%= link_to_function "Back", "history.back()" %>

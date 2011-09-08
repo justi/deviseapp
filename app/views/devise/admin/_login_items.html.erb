@@ -1,0 +1,12 @@
+<% if admin_signed_in? %>
+  <li>
+    Hello Admin !
+    <br> email<%= current_admin.email %><br>
+
+  <%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_admin_session_path)  %>
+  </li>
+<% end %>
